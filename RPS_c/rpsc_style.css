@@ -2,7 +2,7 @@ body {
     margin: 0 0 40px;
 }
 
-.container {
+.container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,6 +17,13 @@ body {
     align-items: center;
 }
 
+.headerMain{
+    height: 50px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+
+}
 
 kbd {
     background-color: #eee;
@@ -75,7 +82,7 @@ kbd {
 
 .headerLinks{
     display: flex;
-    width: 500px;
+    min-width: 600px;
     justify-content: space-around;
     margin-right: 20px;
     margin-top: auto;
@@ -84,6 +91,7 @@ kbd {
     font-size: small;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 
 .footer{
     display: flex;
