@@ -62,37 +62,37 @@ function playRound(choice){
         
         //Rock vs Paper
         if (playerChoice === 0 && compChoice === 1){
-            console.log("You Lost! Paper beats rock.")
+            console.log("You Lost! Paper beats Rock.")
             compScore += 1;
         }
 
         //Rock vs Scissor
         if (playerChoice === 0 && compChoice === 2){
-            console.log("You Won! Rock beats scissor.")
+            console.log("You Won! Rock beats Scissors.")
             playerScore += 1;
         }
 
         //Paper vs Rock
         if (playerChoice === 1 && compChoice === 0){
-            console.log("You Won! Paper beats rock.")
+            console.log("You Won! Paper beats Rock.")
             playerScore += 1;
         }
 
         //Paper vs Scissors
         if (playerChoice === 1 && compChoice === 2){
-            console.log("You Lost! Scissor beats paper.");
+            console.log("You Lost! Scissors beat Paper.");
             compScore += 1;
         }
 
         //Scissor vs Rock
         if (playerChoice === 2 && compChoice === 0){
-            console.log("You Lost! Rock beats Scissor.")
+            console.log("You Lost! Rock beats Scissors.")
             compScore += 1;
         }
 
         //Scissor vs Paper
         if (playerChoice === 2 && compChoice === 1){
-            console.log("You Won! Scissor beats paper.")
+            console.log("You Won! Scissors beat Paper.")
             playerScore += 1;
         }
 
