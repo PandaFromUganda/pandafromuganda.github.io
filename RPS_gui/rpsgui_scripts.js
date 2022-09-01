@@ -4,38 +4,55 @@ var playerChoice = 0;
 var textEnd = "";
 var playerScore = 0;
 var compScore = 0;
+var gameLog = "";
+var buttonClicked = ""
+
+let logText = document.querySelector(".textDisplay");
+let gameText = document.createElement("p");
+
+let compTextbox = document.querySelector(".compText");
+let compText = document.createElement("p");
+
+let buttonRock = document.querySelector("#b1");
+buttonRock.addEventListener("click", function (){
+    console.log("button 1 pressed");
+    playerChoice = 0;
+    playRound(playerChoice);
+    gameText.textContent = gameLog;
+    logText.appendChild(gameText);
+});
+
+let buttonPaper = document.querySelector("#b2");
+buttonPaper.addEventListener("click", function (){
+    console.log("button 2 pressed");
+    playerChoice = 1;
+    playRound(playerChoice);
+    gameText.textContent = gameLog;
+    logText.appendChild(gameText);
+});
+
+let buttonScissors = document.querySelector("#b3");
+buttonScissors.addEventListener("click", function (){
+    console.log("button 3 pressed");
+    playerChoice = 2;
+    playRound(playerChoice);
+    gameText.textContent = gameLog;
+    logText.appendChild(gameText);
+});
+
 
 function getComputerChoice(){
     compChoice = Math.floor(Math.random()*3);
+    compText.textContent = ("The Computer picked " + choices[compChoice] + ".");
+    compTextbox.appendChild(compText);
 }
 
 
-// function game(){
-//     playerScore = 0;
-//     compScore = 0;
-//     console.clear();
-
-
-//     for (i = 0; i < 5; i++){
-
-//      let pick = prompt("Pick your choice!");
-//      let control = pick.toLowerCase();
-     
-//      console.group("Game " + (i + 1));
-
-//      if (choices.includes(control)){
-//         playRound(control);
-//      }
-//      else {
-//         console.log("Your input was invalid, your choice has been set to rock!")
-//         playRound("rock");
-//      };
-//      console.groupEnd()
-//     }
-
-//     console.group("Results");
-//     console.log("You: " + playerScore + " VS CPU: " +compScore)
-//     console.groupEnd;
+// function game(buttonClicked){
+//     playRound(buttonClicked);
+//     console.log(gameLog);
+//     gameText.textContent = gameLog;
+//     logText.appendChild(gameText);
 // }
 
 
@@ -43,62 +60,64 @@ function playRound(choice){
         
         getComputerChoice();
 
-        let newChoice = choice.toLowerCase();
+        // // // let newChoice = choice.toLowerCase(); not needed anymore;
 
-        if (newChoice === "rock"){
-            playerChoice = 0;
-        }
+        // newChoice = choice;
 
-        if (newChoice === "paper"){
-            playerChoice = 1;
-        }
+        // if (newChoice === "rock"){
+        //     playerChoice = 0;
+        // }
 
-        if (newChoice === "scissors"){
-            playerChoice = 2;
-        }
+        // if (newChoice === "paper"){
+        //     playerChoice = 1;
+        // }
 
-        console.log("The Computer picked: " + choices[compChoice]);
+        // if (newChoice === "scissors"){
+        //     playerChoice = 2;
+        // }
+
+        // // console.log("The Computer picked: " + choices[compChoice]);
 
         
         //Rock vs Paper
         if (playerChoice === 0 && compChoice === 1){
-            console.log("You Lost! Paper beats Rock.")
+            gameLog = "You Lost! Paper beats Rock.";
             compScore += 1;
         }
 
         //Rock vs Scissor
         if (playerChoice === 0 && compChoice === 2){
-            console.log("You Won! Rock beats Scissors.")
+            gameLog = "You Won! Rock beats Scissors.";
             playerScore += 1;
         }
 
         //Paper vs Rock
         if (playerChoice === 1 && compChoice === 0){
-            console.log("You Won! Paper beats Rock.")
+            gameLog = "You Won! Paper beats Rock.";
             playerScore += 1;
         }
 
         //Paper vs Scissors
         if (playerChoice === 1 && compChoice === 2){
-            console.log("You Lost! Scissors beat Paper.");
+            gameLog = "You Lost! Scissors beat Paper.";
             compScore += 1;
         }
 
         //Scissor vs Rock
         if (playerChoice === 2 && compChoice === 0){
-            console.log("You Lost! Rock beats Scissors.")
+            gameLog = "You Lost! Rock beats Scissors.";
             compScore += 1;
         }
 
         //Scissor vs Paper
         if (playerChoice === 2 && compChoice === 1){
-            console.log("You Won! Scissors beat Paper.")
+            gameLog = "You Won! Scissors beat Paper."
             playerScore += 1;
         }
 
         //Tie
         if (playerChoice === compChoice){
-            console.log("It's a Tie!");
+            gameLog = "It's a Tie!";
         }
 
     }
